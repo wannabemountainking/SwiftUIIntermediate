@@ -14,7 +14,7 @@ struct SwiftUIIntermediateApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            BackgroundThreadInter()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
