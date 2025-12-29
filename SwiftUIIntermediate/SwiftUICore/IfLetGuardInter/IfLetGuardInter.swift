@@ -12,7 +12,7 @@ struct IfLetGuardInter: View {
     
     // MARK: -  PROPERTY
     @State private var displayText: String? = nil
-    @State private var currentUserID: String?
+    @State private var currentUserID: String? = "Yoonie"
 
     // MARK: -  BODY
     var body: some View {
