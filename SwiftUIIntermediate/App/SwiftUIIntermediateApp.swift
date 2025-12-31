@@ -9,12 +9,13 @@ import SwiftUI
 import CoreData
 
 @main
+@available(iOS 16.0, *)
 struct SwiftUIIntermediateApp: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
-            BackgroundThreadInter()
+            WeakSelfInter()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
