@@ -10,6 +10,7 @@ import Combine
 
 // MARK: - DATA MANAGER
 class DoCatchTryThrowInterDataManager {
+<<<<<<< HEAD
     let isActive: Bool = true
     
     func getTitle1() -> (title: String?, error: Error?) {
@@ -44,6 +45,11 @@ class DoCatchTryThrowInterDataManager {
         } else {
             throw URLError(.badURL)
         }
+=======
+    
+    func getTitle1() -> (title: String?, error: Error?) {
+        return (nil, URLError(.badURL))
+>>>>>>> origin/main
     }
 }
 
@@ -53,6 +59,7 @@ class DoCatchTryThrowInterViewModel: ObservableObject {
     @Published var text: String = "시작"
     let manager = DoCatchTryThrowInterDataManager()
     
+<<<<<<< HEAD
     func fetchTitle1() {
         let returnedValue = manager.getTitle1()
         
@@ -90,6 +97,14 @@ class DoCatchTryThrowInterViewModel: ObservableObject {
         } catch let error {
             self.text = error.localizedDescription
         }
+=======
+    func fetchTitle() {
+        let returnedValue = manager.getTitle1()
+//        if let newTitle = returnedValue.title {
+//            self.text
+//        }
+//        self.text = newTitle
+>>>>>>> origin/main
     }
 }
 
@@ -105,9 +120,13 @@ struct DoCatchTryThrowInter: View {
             .background(Color.green)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             .onTapGesture {
+<<<<<<< HEAD
 //                vm.fetchTitle1()
 //                vm.fetchTitle2()
                 vm.fetchTitle3()
+=======
+                vm.fetchTitle()
+>>>>>>> origin/main
             }
     }
 }
