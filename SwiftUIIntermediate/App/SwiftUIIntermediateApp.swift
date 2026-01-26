@@ -15,7 +15,7 @@ struct SwiftUIIntermediateApp: App {
 
     var body: some Scene {
         WindowGroup {
-            WeakSelfInter()
+            LocalNotificationInter()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
