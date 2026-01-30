@@ -18,7 +18,7 @@ struct GeometryReaderInter: View {
                 Rectangle()
                     .fill(Color.green)
 //                    .frame(width: UIScreen.main.bounds.width * 0.6)
-                    .frame(width: proxy.size.width * 0.6)
+                    .frame(width: proxy.size.width * 0.7)
                 Rectangle()
                     .fill(Color.blue)
             } //:HSTACK
