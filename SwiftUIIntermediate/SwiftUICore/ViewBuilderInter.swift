@@ -35,12 +35,12 @@ struct ViewBuilderInter: View {
             // 4. ViewBuilder 커스터마이징한 것 사용하기
             CustomHStack {
                 Text("Hello")
-                Text("Hello")
+                Text("boy")
             }
             
             HStack {
                 Text("Hello")
-                Text("Hello")
+                Text("boy")
             }
             
             Spacer()
@@ -113,9 +113,12 @@ struct HeaderGeneric<Content: View>: View {
     }
 }
 
-// TODO: 4. ViewBuilder 커스터마이징 하기
+
+// TODO: 4. ViewBuilder 커스터마이징하기
 struct CustomHStack<Content: View>: View {
+    
     let content: Content
+    
     init(@ViewBuilder content: () -> Content) {
         self.content = content()
     }
@@ -126,44 +129,50 @@ struct CustomHStack<Content: View>: View {
     }
 }
 
-#Preview {
-    ViewBuilderInter()
-}
-
-#Preview {
-    LocalViewBuilder(type: .one)
-}
-
-// 5. Local ViewBuilder 사용하기
+// TODO: 5. Local ViewBuilder 사용하기
 struct LocalViewBuilder: View {
     enum ViewType {
         case one, two, three
     }
+    
     let type: ViewType
+    
+    var body: some View {
+        VStack {
+            
+        }
+    }
+    
     @ViewBuilder private var numberPlate: some View {
-        if type == .one {
+        switch type {
+        case .one:
             view1
-        } else if type == .two {
+        case .two:
             view2
-        } else if type == .three {
+        case .three:
             view3
         }
     }
-    var body: some View {
-        VStack {
-            numberPlate
-        }
-    }
+    
     private var view1: some View {
-        Text("Number 1")
+        Text("Number1")
     }
+    
     private var view2: some View {
         VStack {
-            Text("Number 2")
+            Text("Number2")
             Image(systemName: "2.circle")
         }
     }
+    
     private var view3: some View {
         Image(systemName: "3.circle")
     }
+}
+
+#Preview {
+    ViewBuilderInter()
+}
+#Preview {
+    LocalViewBuilder(type: .one)
 }

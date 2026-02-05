@@ -15,7 +15,7 @@ struct SwiftUIIntermediateApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LocalNotificationInter()
+            MatchedGeomtryEffectInter2()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
