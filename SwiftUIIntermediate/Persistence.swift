@@ -8,16 +8,23 @@
 import CoreData
 
 struct PersistenceController {
+    
+    // instance 생성
     static let shared = PersistenceController()
 
+    // SwiftUI Preview에서 core data를 보기 위한 변수
     @MainActor
     static let preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+        
+        //여기서 FishEntity가 업데이트 안되면 cmd + Shift + K 로 code clean 혹은 xcode 재시작하면 인식함
+        for x in 1..<10 {
+            let newFish = FishEntity(context: viewContext)
+            // 반복문을 돌면서 광어 1, 광어 2, ..., 광어 9 까지 만듦
+            newFish.name = "광어 \(x)"
         }
+        
         do {
             try viewContext.save()
         } catch {
